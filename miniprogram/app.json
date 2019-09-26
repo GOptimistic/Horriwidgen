@@ -1,18 +1,56 @@
 {
   "pages": [
+    "pages/mainwindow/homepage/homepage",
     "pages/index/index",
-    "pages/userConsole/userConsole",
-    "pages/storageConsole/storageConsole",
-    "pages/databaseGuide/databaseGuide",
-    "pages/addFunction/addFunction",
-    "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib"
+    "pages/addCgi/addCgi",
+    "pages/mainwindow/around/around",
+    
+    "pages/mainwindow/me/me",
+    "pages/mainwindow/orders/orders",
+    "pages/mainwindow/rooms/rooms"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarTitleText": "Wafer Quick Start",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/mainwindow/homepage/homepage",
+        "text": "首页",
+        "iconPath": "images/icons/home.png",
+        "selectedIconPath": "images/icons/selectedhome.png"
+      },
+      {
+        "pagePath": "pages/mainwindow/around/around",
+        "text": "周边",
+        "iconPath": "images/icons/around.png",
+        "selectedIconPath": "images/icons/selectedaround.png"
+      },
+      {
+        "pagePath": "pages/mainwindow/orders/orders",
+        "text": "订单",
+        "iconPath": "images/icons/orders.png",
+        "selectedIconPath": "images/icons/selectedorders.png"
+      },
+      {
+        "pagePath": "pages/mainwindow/rooms/rooms",
+        "text": "房间",
+        "iconPath": "images/icons/rooms.png",
+        "selectedIconPath": "images/icons/selectedrooms.png"
+      },
+      {
+        "pagePath": "pages/mainwindow/me/me",
+        "text": "我的",
+        "iconPath": "images/icons/me.png",
+        "selectedIconPath": "images/icons/selectedme.png"
+      }
+    ],
+    "color": "#cdcdcd",
+    "selectedColor": "#0089a7",
+    "borderStyle": "white"
   }
 }

@@ -1,15 +1,40 @@
 //app.js
+var qcloud = require('./vendor/wafer2-client-sdk/index')
+var config = require('./config')
+
 App({
-  onLaunch: function () {
-    
-    if (!wx.cloud) {
-      console.error('请使用 2.2.3 或以上的基础库以使用云能力')
-    } else {
-      wx.cloud.init({
-        traceUser: true,
+    onLaunch: function () {
+        qcloud.setLoginUrl(config.service.loginUrl)
+    },
+
+/*https://blog.csdn.net/qq_38191191/article/details/80913933
+    onLoad: function(){
+      wx.request({
+        url: 'http://dev.cfo-mentor.com/menter/resources/views/demo/132.php', //服务器地址
+        data: {
+          name: 'bob'//请求参数
+        },
+        header: {
+          'content-type': 'application/json'
+        },
+        success: function (res) {
+          console.log(res.data)
+        }
       })
     }
-
-    this.globalData = {}
+    */
+  onLoad: function () {
+    wx.request({
+      url: 'http://horiwidgen.com', //服务器地址
+      data: {
+        name: 'bob'//请求参数
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res.data)
+      }
+    })
   }
 })
