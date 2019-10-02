@@ -4,7 +4,14 @@
     "pages/mainwindow/around/around",
     "pages/mainwindow/me/me",
     "pages/mainwindow/orders/orders",
-    "pages/mainwindow/rooms/rooms"
+    "pages/mainwindow/rooms/rooms",
+    "pages/index/index",
+    "pages/userConsole/userConsole",
+    "pages/storageConsole/storageConsole",
+    "pages/databaseGuide/databaseGuide",
+    "pages/addFunction/addFunction",
+    "pages/deployFunctions/deployFunctions",
+    "pages/chooseLib/chooseLib"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
