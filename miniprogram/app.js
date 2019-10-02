@@ -1,40 +1,24 @@
 //app.js
-var qcloud = require('./vendor/wafer2-client-sdk/index')
-var config = require('./config')
+
 
 App({
     onLaunch: function () {
-        qcloud.setLoginUrl(config.service.loginUrl)
+      if (!wx.cloud) {
+        console.error('请使用 2.2.3 或以上的基础库以使用云能力')
+      } else {
+        wx.cloud.init({
+          // env 参数说明：
+          //   env 参数决定接下来小程序发起的云开发调用（wx.cloud.xxx）会默认请求到哪个云环境的资源
+          //   此处请填入环境 ID, 环境 ID 可打开云控制台查看
+          //   如不填则使用默认环境（第一个创建的环境）
+          env: 'hotel-a54584',
+          traceUser: true,
+        })
+      }
+
+      this.globalData = {}
     },
 
-/*https://blog.csdn.net/qq_38191191/article/details/80913933
-    onLoad: function(){
-      wx.request({
-        url: 'http://dev.cfo-mentor.com/menter/resources/views/demo/132.php', //服务器地址
-        data: {
-          name: 'bob'//请求参数
-        },
-        header: {
-          'content-type': 'application/json'
-        },
-        success: function (res) {
-          console.log(res.data)
-        }
-      })
-    }
-    */
-  onLoad: function () {
-    wx.request({
-      url: 'http://horiwidgen.com', //服务器地址
-      data: {
-        name: 'bob'//请求参数
-      },
-      header: {
-        'content-type': 'application/json'
-      },
-      success: function (res) {
-        console.log(res.data)
-      }
-    })
-  }
+
+  
 })

@@ -1,10 +1,7 @@
 {
   "pages": [
     "pages/mainwindow/homepage/homepage",
-    "pages/index/index",
-    "pages/addCgi/addCgi",
     "pages/mainwindow/around/around",
-    
     "pages/mainwindow/me/me",
     "pages/mainwindow/orders/orders",
     "pages/mainwindow/rooms/rooms"
@@ -52,5 +49,6 @@
     "color": "#cdcdcd",
     "selectedColor": "#0089a7",
     "borderStyle": "white"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

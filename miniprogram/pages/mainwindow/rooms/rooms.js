@@ -6,8 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    roomID:''
-    
+    roomID:102,
+    roomType:'标间',
+    guestName:'管政',
+    guestPhone:'15651853776'
   },
 
   /**
@@ -18,17 +20,39 @@ Page({
       env: 'hotel-a54584',
       traceUser: true
     });
+    const that = this;
     const db = wx.cloud.database();
     db.collection('rooms').doc('XLfIT4nnuWjci1UL').get({
       success(res) {
         // res.data 包含该记录的数据
-        console.log(res.data);
-        this.setData({
-          roomID: res.data
-        })
+        console.log(res.data.roomID);
+        that.setData({
+          roomID: res.data.roomID,
+          roomType: res.data.type,
+          guestName: res.data.guestName,
+          guestPhone: res.data.guestPhone,          
+        });
       }
     });
 
+  },
+  add:function(){
+    const db = wx.cloud.database();
+    var anum = 0;
+    db.collection('rooms').doc('XLfIT4nnuWjci1UL').get({
+      success(res) {
+        // res.data 包含该记录的数据
+        anum = res.data.roomID;
+        console.log('before');
+        console.log(this);
+        console.log(anum);
+      }
+    });
+    console.log('after');
+    console.log(anum);
+    this.setData({
+      roomID: anum
+    });
   },
 
   /**

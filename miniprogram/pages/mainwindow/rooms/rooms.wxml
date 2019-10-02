@@ -1,8 +1,24 @@
 <!--client/pages/mainwindow/rooms/rooms.wxml-->
-<view class="btn-area">
-  <view class="body-view">
-    <text>{{roomID}}</text>
-    <button bindtap="add">add line</button>
-    <button bindtap="remove">remove line</button>
+<scroll-view class='listy'>
+  <view class='item' wx:for='{{[1,1,1,1,1,1,1,1,1]}}'>
+    <view class='container-info'>
+      <view class='roominfo'>
+        <view>房间类型：</view>
+        <view>房间号：</view>
+        <view>住房人姓名：</view>
+        <view>住房人手机号：</view>
+      </view>
+      <view class='roominfo'>
+        <view>{{roomType}}</view>
+        <view>{{roomID}}</view>
+        <view>{{guestName}}</view>
+        <view>{{guestPhone}}</view>
+      </view>
+    </view>
+    <view class="container-btn">
+      <button size="mini" type="primary" disabled="true">卫生</button>
+      <button size="mini" type="primary">入住</button>
+      <button size="mini" type="primary" disabled="true">锁门</button>
+    </view>
   </view>
-</view>
+</scroll-view>

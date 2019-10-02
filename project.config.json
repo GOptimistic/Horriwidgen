@@ -11,6 +11,8 @@
 	"appid": "wx50acaa0ce009206d",
 	"projectname": "horriwidgen",
 	"libVersion": "2.2.5",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
