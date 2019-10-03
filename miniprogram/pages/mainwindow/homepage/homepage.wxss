@@ -1,1 +1,6 @@
 /* client/pages/mainwindow/homepage/homepage.wxss */
+.index_banner,
+.index_banner image{
+  width: 750rpx;
+  height: 400rpx;
+}

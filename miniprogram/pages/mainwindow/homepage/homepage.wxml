@@ -1,2 +1,11 @@
 <!--client/pages/mainwindow/homepage/homepage.wxml-->
-<text>client/pages/mainwindow/homepage/homepage.wxml</text>
+<!-- <text>client/pages/mainwindow/homepage/homepage.wxml</text> -->
+<view class="swiper-container">
+ <swiper indicator-dots="{{indicatorDots}}" class='index_banner' indicator-active-color="#fff" autoplay="{{autoplay}}" interval="{{interval}}" circular="true" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}" wx:key="key">
+    <swiper-item>
+      <image src="{{item.picUrl}}" class="slide-image" />
+    </swiper-item>
+  </block>
+</swiper>
+</view>
