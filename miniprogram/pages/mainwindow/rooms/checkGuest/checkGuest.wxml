@@ -4,5 +4,6 @@
   <view class="text">客户1</view>
   <view class="text">姓名：{{guestName}}</view>
   <view class="text">性别：{{sex}}</view>
-  <view class="text">出生日期：</view>
+  <view class="text">出生日期：{{birthDate}}</view>
+  <button size="mini">修改</button>
 </view>

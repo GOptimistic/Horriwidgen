@@ -1,1 +1,10 @@
 /* miniprogram/pages/mainwindow/rooms/checkGuest/checkGuest.wxss */
+.container{
+  width: 700rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 20rpx;
+  margin-bottom: 20rpx;
+  background-color: rgb(129, 199, 212)
+}
