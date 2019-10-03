@@ -1,9 +1,24 @@
 <!--miniprogram/pages/mainwindow/rooms/checkGuest/checkGuest.wxml-->
 <view class="title">请核对入住人信息</view>
-<view class="container">
-  <view class="text">客户1</view>
-  <view class="text">姓名：{{guestName}}</view>
-  <view class="text">性别：{{sex}}</view>
-  <view class="text">出生日期：{{birthDate}}</view>
-  <button size="mini">修改</button>
-</view>
+<scroll-view class='listy'>
+  <view class='item' wx:for='[1]'>
+    <view class='container-info'>
+      <view class='guestinfo'>
+        <view class="text">姓名：</view>
+        <view class="text">性别：</view>
+        <view class="text">出生日期：</view>
+        <view class="text">身份证号：</view>
+      </view>
+      <view class='guestinfo'>
+        <view class="text">{{guestName}}</view>
+        <view class="text">{{sex}}</view>
+        <view class="text">{{birthDate}}</view>
+        <view class="text">{{IDNumber}}</view>
+      </view>
+    </view>
+    <view class="container-btn">
+      <button size="mini" class="btn2">修改</button>
+    </view>
+  </view>
+</scroll-view>
+<button class="btn1">确认入住</button>

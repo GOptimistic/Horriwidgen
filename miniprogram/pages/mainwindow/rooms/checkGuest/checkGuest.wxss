@@ -1,10 +1,53 @@
 /* miniprogram/pages/mainwindow/rooms/checkGuest/checkGuest.wxss */
-.container{
+.listy{
+  padding: 30rpx;
+}
+.listy .item{
   width: 700rpx;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-radius: 20rpx;
+  border-radius: 30rpx;
   margin-bottom: 20rpx;
+  padding-top: 20rpx;
   background-color: rgb(129, 199, 212)
+}
+.listy .item .container-info{
+  width: 700rpx;
+  padding-left: 50rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: space-between;
+  font-size: 30rpx;
+}
+.listy .item .container-info.guestinfo{
+  width: 500rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+}
+.listy .item .container-btn{
+  width: 500rpx;
+  height: 70rpx;
+  padding-left: 200rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: space-between;
+  font-size: 10rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+.btn1{
+  background-color: rgb(49, 95, 117);
+  color: white;
+  width: 500rpx;
+  border-radius: 50rpx;
+}
+.btn2{
+  background-color: rgb(49, 95, 117);
+  color: white;
+  border-radius: 30rpx;
+}
+.text{
+  color: white;
 }

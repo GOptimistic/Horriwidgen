@@ -9,6 +9,7 @@
   justify-content: space-between;
   border:2px double #2BD5D5;
   border-radius: 20rpx;
+  padding-top: 20rpx;
   margin-bottom: 20rpx;
 }
 .listy .item .container-info{
@@ -33,6 +34,12 @@
   flex-direction: row;
   align-items: space-between;
   font-size: 10rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+.btn{
+  background-color: #2BD5D5;
+  color:white;
 }
 
 

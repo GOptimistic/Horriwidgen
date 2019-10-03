@@ -16,11 +16,11 @@
       </view>
     </view>
     <view class="container-btn">
-      <button size="mini" type="primary" disabled="{{item.cleanDis}}">卫生</button>
-      <button size="mini" type="primary" bindtap="checkInOut" data-inout="{{item.checkInOut}}" data-guestName="{{item.guestName}}" data-roomID="{{item.roomID}}">
+      <button size="mini" class="btn" disabled="{{item.cleanDis}}">卫生</button>
+      <button size="mini" class="btn" bindtap="checkInOut" data-inout="{{item.checkInOut}}" data-guestName="{{item.guestName}}" data-roomID="{{item.roomID}}">
       {{item.checkInOut}}
       </button>
-      <button size="mini" type="primary" disabled="{{item.lockDis}}">{{item.lockUnlock}}</button>
+      <button size="mini" class="btn" disabled="{{item.lockDis}}">{{item.lockUnlock}}</button>
     </view>
   </view>
 </scroll-view>
