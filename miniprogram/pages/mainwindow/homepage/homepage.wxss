@@ -1,6 +1,24 @@
 /* client/pages/mainwindow/homepage/homepage.wxss */
+page{
+  background-color: #252125;
+}
+
 .index_banner,
 .index_banner image{
   width: 750rpx;
-  height: 400rpx;
+  height: 500rpx;
+}
+
+/* .home-container{
+
+} */
+
+.home-info{
+  width: 320rpx;
+  height: 120rpx;
+  background-color: #707070;
+  margin: 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
