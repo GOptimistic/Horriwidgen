@@ -1,2 +1,57 @@
-<!--client/pages/mainwindow/me/me.wxml-->
-<text>client/pages/mainwindow/me/me.wxml</text>
+<view wx:if="{{isHide}}">
+    <view wx:if="{{canIUse}}" >
+        <view class='header'>
+            <image src='../../../images/wx_login.png'></image>
+        </view>
+
+        <view class='content'>
+            <view>申请获取以下权限</view>
+            <text>获得你的公开信息(昵称，头像等)</text>
+        </view>
+
+        <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+            授权登录
+        </button>
+    </view>
+    <view wx:else>请升级微信版本</view>
+</view>
+
+<view wx:else>
+  <view class="userinfo">
+    <image class="userinfo-avatar" src='{{userInfo.avatarUrl}}'></image>
+    <view class="nickname">{{userInfo.nickName}}</view>
+    <view class="row-section" >
+      <view class="col-section">
+        <text class="text">0</text>
+        <text class="text">积分</text> 
+      </view>
+      <view class="col-section">
+        <view class="col-line"></view>
+      </view>
+      <view class="col-section">
+        <text class="text">0</text>
+        <text class="text">等级</text>  
+      </view>
+    </view>
+  </view>
+  <view class="separate"></view>
+  <view class="person-line"></view>
+  <view class="person-list">
+    <view class="list-item" bindtap="myJourney">
+      <text class="item-text">我的旅程</text>
+      <image class="item-image" src="../../../images/icons/arrow.png"></image>
+    </view>
+    <view class="person-line"></view>
+    <view class="list-item">
+      <text class="item-text">优惠活动</text>
+      <image class="item-image" src="../../../images/icons/arrow.png"></image>
+    </view>
+    <view class="person-line"></view>
+    <view class="list-item">
+      <text class="item-text">发票信息</text>
+      <image class="item-image" src="../../../images/icons/arrow.png"></image>
+    </view>
+    <view class="person-line"></view>
+  </view>
+
+</view>
