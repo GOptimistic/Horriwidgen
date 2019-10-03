@@ -6,10 +6,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    roomID:102,
-    roomType:'标间',
-    guestName:'管政',
-    guestPhone:'15651853776'
   },
 
   /**
@@ -22,39 +18,64 @@ Page({
     });
     const that = this;
     const db = wx.cloud.database();
-    db.collection('rooms').doc('XLfIT4nnuWjci1UL').get({
+    /*db.collection('rooms').doc('XLfIT4nnuWjci1UL').get({
       success(res) {
         // res.data 包含该记录的数据
         console.log(res.data.roomID);
         that.setData({
           roomID: res.data.roomID,
-          roomType: res.data.type,
+          roomType: res.data.roomType,
           guestName: res.data.guestName,
-          guestPhone: res.data.guestPhone,          
+          guestPhone: res.data.guestPhone,
         });
       }
-    });
-
-  },
-  add:function(){
-    const db = wx.cloud.database();
-    var anum = 0;
-    db.collection('rooms').doc('XLfIT4nnuWjci1UL').get({
+    });*/
+    db.collection('rooms').get({
       success(res) {
         // res.data 包含该记录的数据
-        anum = res.data.roomID;
-        console.log('before');
-        console.log(this);
-        console.log(anum);
+        var roomArray = res.data;
+        that.setData({
+          roomArray:roomArray
+        })
+        //console.log(that.data.roomArray);
       }
     });
-    console.log('after');
-    console.log(anum);
-    this.setData({
-      roomID: anum
-    });
   },
-
+  checkInOut:function(e){
+    //console.log('hhh');
+    var checkInfo = {};//包含入住人姓名以及房号
+    var inout = e.currentTarget.dataset.inout;
+    checkInfo.guestName = e.currentTarget.dataset.guestname;
+    checkInfo.roomID = e.currentTarget.dataset.roomid;
+    //console.log(checkInfo);
+    wx.navigateTo({
+      url: './checkGuest/checkGuest',
+      success: function (res) {
+        // 通过eventChannel向被打开页面传送数据
+        res.eventChannel.emit('acceptDataFromOpenerPage', { data: checkInfo })
+      }
+    })
+  },
+  getPhoneNumber: function (e) {
+    console.log(e.detail.errMsg)
+    console.log(e.detail.iv)
+    console.log(e.detail.encryptedData)
+    if (e.detail.errMsg == 'getPhoneNumber:fail user deny') {
+      wx.showModal({
+        title: '提示',
+        showCancel: false,
+        content: '未授权',
+        success: function (res) { }
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        showCancel: false,
+        content: '同意授权',
+        success: function (res) { }
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

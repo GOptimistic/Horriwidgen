@@ -1,0 +1,8 @@
+<!--miniprogram/pages/mainwindow/rooms/checkGuest/checkGuest.wxml-->
+<view class="title">请核对入住人信息</view>
+<view class="container">
+  <view class="text">客户1</view>
+  <view class="text">姓名：{{guestName}}</view>
+  <view class="text">性别：{{sex}}</view>
+  <view class="text">出生日期：</view>
+</view>

@@ -1,6 +1,6 @@
 <!--client/pages/mainwindow/rooms/rooms.wxml-->
 <scroll-view class='listy'>
-  <view class='item' wx:for='{{[1,1,1,1,1,1,1,1,1]}}'>
+  <view class='item' wx:for='{{roomArray}}'>
     <view class='container-info'>
       <view class='roominfo'>
         <view>房间类型：</view>
@@ -9,16 +9,18 @@
         <view>住房人手机号：</view>
       </view>
       <view class='roominfo'>
-        <view>{{roomType}}</view>
-        <view>{{roomID}}</view>
-        <view>{{guestName}}</view>
-        <view>{{guestPhone}}</view>
+        <view>{{item.roomType}}</view>
+        <view>{{item.roomID}}</view>
+        <view>{{item.guestName}}</view>
+        <view>{{item.guestPhone}}</view>
       </view>
     </view>
     <view class="container-btn">
-      <button size="mini" type="primary" disabled="true">卫生</button>
-      <button size="mini" type="primary">入住</button>
-      <button size="mini" type="primary" disabled="true">锁门</button>
+      <button size="mini" type="primary" disabled="{{item.cleanDis}}">卫生</button>
+      <button size="mini" type="primary" bindtap="checkInOut" data-inout="{{item.checkInOut}}" data-guestName="{{item.guestName}}" data-roomID="{{item.roomID}}">
+      {{item.checkInOut}}
+      </button>
+      <button size="mini" type="primary" disabled="{{item.lockDis}}">{{item.lockUnlock}}</button>
     </view>
   </view>
 </scroll-view>
