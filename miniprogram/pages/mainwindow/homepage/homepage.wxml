@@ -1,2 +1,19 @@
 <!--client/pages/mainwindow/homepage/homepage.wxml-->
-<text>client/pages/mainwindow/homepage/homepage.wxml</text>
+<!-- <text>client/pages/mainwindow/homepage/homepage.wxml</text> -->
+<view class="home-container">
+  <swiper indicator-dots="{{indicatorDots}}" class='index_banner' indicator-active-color="#fff" autoplay="{{autoplay}}" interval="{{interval}}" circular="true" duration="{{duration}}">
+    <!-- <block wx:for="{{imgUrls}}" wx:key="key"> -->
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- <button bindtap="changeIndicatorDots"> indicator-dots </button>
+<button bindtap="changeAutoplay"> autoplay </button>
+<slider bindchange="intervalChange" show-value min="500" max="2000" />
+<slider bindchange="durationChange" show-value min="1000" max="10000" /> -->
+  <view class="home-info">
+    
+  </view>
+</view>
