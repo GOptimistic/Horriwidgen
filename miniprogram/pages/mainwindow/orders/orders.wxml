@@ -1,28 +1,42 @@
-<!-- client/pages/mainwindow/orders/orders.wxml
-<button type="default" size="mini" plain="true" border="none" hover-class="free-btn-bordernone"> 全部订单 </button>
-<button type="default" size="mini" plain="true" bindtap="primary"> 待付款 </button>
-<button type="default" size="mini" plain="true">
-  待入住 </button>
-<button type="default" size="mini" plain="true">
-  待评价 </button> -->
-<view class="swiper-tab">  
-    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">全部订单</view>  
-    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">待付款</view>  
-    <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">待入住</view>  
-    <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">待评价</view>  
-</view>  
-  
-<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">  
-    <!-- 我是哈哈 -->  
-    <swiper-item>  
-      <view>我是哈哈</view>  
-    </swiper-item>  
-    <!-- 我是呵呵 -->  
-    <swiper-item>  
-      <view>我是呵呵</view>  
-    </swiper-item>  
-    <!-- 我是嘿嘿 -->  
-    <swiper-item>  
-      <view>我是嘿嘿</view>  
-    </swiper-item>  
-</swiper>  
+<view class="swiper-tab">
+  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">全部订单</view>
+  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">待付款</view>
+  <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">待入住</view>
+  <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">待评价</view>
+</view>
+
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">
+  <swiper-item>
+    <view>
+      <scroll-view class='listy'>
+        <view class='item' wx:for='{{orderArray}}'>
+          <view class='container-info'>
+            <view class='roominfo'>
+              <view>房间类型：</view>
+              <view>房间号：</view>
+              <view>住房人姓名：</view>
+              <view>住房人手机号：</view>
+            </view>
+            <view class='roominfo'>
+              <view>{{item.roomType}}</view>
+              <view>{{item.roomID}}</view>
+              <view>{{item.guestName}}</view>
+              <view>{{item.guestPhone}}</view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </swiper-item>
+  <!-- 我是呵呵 -->
+  <swiper-item>
+    <view>我是呵呵</view>
+  </swiper-item>
+  <!-- 我是嘿嘿 -->
+  <swiper-item>
+    <view>我是嘿嘿</view>
+  </swiper-item>
+  <swiper-item>
+    <view>我是憨憨</view>
+  </swiper-item>
+</swiper>

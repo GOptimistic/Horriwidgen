@@ -12,10 +12,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.cloud.init({
-      env: 'hotel-a54584',
-      traceUser: true
-    });
     const that = this;
     const db = wx.cloud.database();
     /*db.collection('rooms').doc('XLfIT4nnuWjci1UL').get({

@@ -1,4 +1,5 @@
 // client/pages/mainwindow/orders/orders.js
+var app = getApp();
 Page({
 
   /* 页面的初始数据 */
@@ -15,7 +16,17 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-
+    const db = wx.cloud.database();
+    db.collection('orders').get({
+      success(res) {
+        // res.data 包含该记录的数据
+        var orderarray = res.data;
+        that.setData({
+          orderArray: orderarray
+        })
+        console.log(that.data.orderArray);
+      }
+    });
     /**  
      * 获取系统信息  
      */
