@@ -5,12 +5,12 @@ Page({
    * 页面的初始数据
    */
   // data: {
-    // swiperCurrent: 0,
-    // indicatorDots: true,
-    // autoplay: true,
-    // interval: 3000,
-    // duration: 800,
-    // circular: true,
+  // swiperCurrent: 0,
+  // indicatorDots: true,
+  // autoplay: true,
+  // interval: 3000,
+  // duration: 800,
+  // circular: true,
   //   imgUrls: [
   //     '../../../images/1.jpg',
   //     '../../../images/1.jpg',
@@ -56,12 +56,17 @@ Page({
   //     duration: e.detail.value
   //   })
   // },
-/**
- * 生命周期函数--监听页面加载
- */
-onLoad: function (options) {
+  toSearchPage(){
+    wx.navigateTo({
+      url: '../search/search',
+    })
+  },
+    /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function(options) {
 
-},
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

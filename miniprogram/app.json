@@ -4,18 +4,19 @@
     "pages/mainwindow/around/around",
     "pages/mainwindow/me/me",
     "pages/mainwindow/orders/orders",
-    "pages/mainwindow/rooms/rooms",    
+    "pages/mainwindow/rooms/rooms",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
     "pages/addFunction/addFunction",
     "pages/deployFunctions/deployFunctions",
     "pages/chooseLib/chooseLib",
-    "pages/mainwindow/rooms/checkGuest/checkGuest"
+    "pages/mainwindow/rooms/checkGuest/checkGuest",
+    "pages/mainwindow/search/search"
   ],
   "permission": {
     "scope.userLocation": {
-      "desc": "你的位置信息将仅用于此页面" 
+      "desc": "你的位置信息将仅用于此页面"
     }
   },
   "window": {
@@ -62,6 +63,5 @@
     "selectedColor": "#0089a7",
     "borderStyle": "white"
   },
-  
   "sitemapLocation": "sitemap.json"
 }

@@ -13,7 +13,9 @@
 <button bindtap="changeAutoplay"> autoplay </button>
 <slider bindchange="intervalChange" show-value min="500" max="2000" />
 <slider bindchange="durationChange" show-value min="1000" max="10000" /> -->
-  <view class="home-info">
-    
+  <view class="home-info-container">
+    <view class="home-info">
+    </view>
+    <button class="home-book-btn" id="home_book_btn" bindtap="toSearchPage">预定酒店</button>
   </view>
 </view>

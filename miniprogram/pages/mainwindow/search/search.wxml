@@ -1,0 +1,17 @@
+<!--miniprogram/pages/mainwindow/search/search.wxml-->
+<view class="search-top">
+  <view class="search-time">
+    <view class='weui-flex__item'>
+    <navigator url='/pages/date/date?isorder=false&id=null' hover-class='nav'>
+      住
+      <text>{{occupancy}}</text>
+    </navigator>
+  </view>
+  <view class='weui-flex__item'>
+    <navigator url='/pages/date/date?isorder=false&id=null' hover-class='nav'>
+      离
+      <text>{{leave}}</text>
+    </navigator>
+  </view>
+  </view>
+</view>

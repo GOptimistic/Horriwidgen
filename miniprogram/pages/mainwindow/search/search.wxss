@@ -1,0 +1,41 @@
+/* miniprogram/pages/mainwindow/search/search.wxss */
+.search-top{
+  flex-direction:row;
+  height: 10%;
+  width: 100%;
+  border-color: rgba(112, 112, 112, 0.781);
+  border-width: 10rpx;
+}
+
+.search-time{
+  flex-direction:column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ECECEC;
+  height: 80%;
+  width: 24%;
+  border-radius: 10px;
+  margin: 5rpx;
+  border-left: 5rpx;
+}
+
+.date_box{
+  font-size: 30rpx;
+}
+.date_box>view{
+  width: 50%;
+  margin: 20rpx 0;
+  padding: 20rpx 0;
+  background: #fff;
+  box-sizing: border-box;
+  text-align: center;
+  border-right: 1rpx solid #c3c3c3;
+}
+.date_box>view:nth-child(2){
+  border-right: none;
+  border-left: 1rpx solid #c3c3c3;
+}
+.date_box>view text{
+  padding-left: 10rpx;
+}

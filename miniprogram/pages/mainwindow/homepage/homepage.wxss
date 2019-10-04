@@ -9,16 +9,27 @@ page{
   height: 500rpx;
 }
 
-/* .home-container{
-
-} */
-
-.home-info{
-  width: 320rpx;
-  height: 120rpx;
-  background-color: #707070;
-  margin: 50rpx;
+.home-info-container{
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction:column;
+}
+
+.home-info{
+  width: 80%;
+  height: 240rpx;
+  background-color: #707070;
+  margin: 60rpx;
+  margin-bottom: 0rpx;
+  border-radius: 10px;
+}
+
+.home-book-btn{
+  width: 80%;
+  height: 100rpx;
+  background-color: #707070;
+  border-radius: 10px;
+  margin-top: 20rpx;
+  color: #ffffff;
 }
