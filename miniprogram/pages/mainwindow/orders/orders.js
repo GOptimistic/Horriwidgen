@@ -16,15 +16,86 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    var util = require('../../../utils/util.js');
     const db = wx.cloud.database();
+    db.collection('orders').where({
+      isPay: false
+    })
+    .get({
+      success: function(res) {
+        console.log(res.data)
+        for (let c in res.data) {
+          let date = util.formatTime(res.data[c].startDate)
+          res.data[c].startDate = date
+        }
+        for (let c in res.data) {
+          let date = util.formatTime(res.data[c].finishDate)
+          res.data[c].finishDate = date
+        }
+        var notPayArray = res.data
+        that.setData({
+          notPayArray: notPayArray
+        })
+        console.log(notPayArray)
+      }
+    })
+    db.collection('orders').where({
+      isComplete: false
+    })
+      .get({
+        success: function (res) {
+          console.log(res.data)
+          for (let c in res.data) {
+            let date = util.formatTime(res.data[c].startDate)
+            res.data[c].startDate = date
+          }
+          for (let c in res.data) {
+            let date = util.formatTime(res.data[c].finishDate)
+            res.data[c].finishDate = date
+          }
+          var notCompArray = res.data
+          that.setData({
+            notCompArray: notCompArray
+          })
+          console.log(notCompArray)
+        }
+      })
+    db.collection('orders').where({
+      isEvaluate: false
+    })
+      .get({
+        success: function (res) {
+          console.log(res.data)
+          for (let c in res.data) {
+            let date = util.formatTime(res.data[c].startDate)
+            res.data[c].startDate = date
+          }
+          for (let c in res.data) {
+            let date = util.formatTime(res.data[c].finishDate)
+            res.data[c].finishDate = date
+          }
+          var notEvaArray = res.data
+          that.setData({
+            notEvaArray: notEvaArray
+          })
+          console.log(notEvaArray)
+        }
+      })
     db.collection('orders').get({
       success(res) {
         // res.data 包含该记录的数据
+        for (let c in res.data) {
+          let date = util.formatTime(res.data[c].startDate)
+          res.data[c].startDate= date
+        }
+        for (let c in res.data) {
+          let date = util.formatTime(res.data[c].finishDate)
+          res.data[c].finishDate = date
+        }
         var orderarray = res.data;
         that.setData({
           orderArray: orderarray
         })
-        console.log(that.data.orderArray);
       }
     });
     /**  

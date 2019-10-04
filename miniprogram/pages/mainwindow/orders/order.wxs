@@ -1,0 +1,19 @@
+// var formatTime = function (date) {
+//   var needdate = getDate(date); //返回当前时间对象
+//   console.log(needdate)
+//   var year = getFullYear(date)
+//   var month = getMonth(date) + 1
+//   var day = getDate(date)
+//   console.log(year)
+//   return [year, month, day].join('-')
+var formatTime = function (date) {
+    var date = getDate(date)
+    var year = date.getFullYear()
+    var month = date.getMonth() + 1
+    var day = date.getDate()
+    return [year, month, day].join('/')
+}
+
+module.exports = {
+  formatTime: formatTime
+}

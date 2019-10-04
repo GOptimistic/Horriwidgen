@@ -50,7 +50,7 @@
   align-items: space-between;
   font-size: 30rpx;
 }
-.listy .item .container-info.roominfo{
+.listy .item .container-info.orderinfo{
   width: 500rpx;
   display: flex;
   flex-direction: column;
