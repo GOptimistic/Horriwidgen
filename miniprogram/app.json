@@ -12,7 +12,9 @@
     "pages/deployFunctions/deployFunctions",
     "pages/chooseLib/chooseLib",
     "pages/mainwindow/rooms/checkGuest/checkGuest",
-    "pages/mainwindow/search/search"
+    "pages/mainwindow/search/search",
+    "pages/camera/camera",
+    "pages/camera2/camera2"
   ],
   "permission": {
     "scope.userLocation": {

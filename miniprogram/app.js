@@ -2,6 +2,10 @@
 
 
 App({
+  globalData:{
+    isChecked:false,//判断是否进行了人脸识别
+    guestPhone:''//用户的手机号
+  },
     onLaunch: function () {
       if (!wx.cloud) {
         console.error('请使用 2.2.3 或以上的基础库以使用云能力')
@@ -25,8 +29,6 @@ App({
           }
         });
       }
-
-      this.globalData = {}
     },
 
 
