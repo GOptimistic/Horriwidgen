@@ -19,7 +19,6 @@ page{
 .home-info{
   width: 80%;
   height: 240rpx;
-  background-color: #707070;
   margin: 60rpx;
   margin-bottom: 0rpx;
   border-radius: 10px;
@@ -28,8 +27,44 @@ page{
 .home-book-btn{
   width: 80%;
   height: 100rpx;
-  background-color: #707070;
+  background-color: #ffffff40;
   border-radius: 10px;
   margin-top: 20rpx;
   color: #ffffff;
+}
+
+.home-info-position{
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  flex-direction:column;
+  color: #ffffff;
+  height: 49%;
+  background-color: #ffffff40;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.home-info-position-text{
+  font-size: 12px;
+  color: #e7e7e7;
+  margin-left: 8%;
+  margin-top: 5%;
+}
+
+.home-info-position-content{
+  margin-left: 6%;
+  margin-top: 1%;
+}
+
+.home-info-line{
+  height: 2%;
+  background-color: #252125;
+}
+
+.home-info-date{
+  flex-direction:column;
+  color: #ffffff;
+  height: 49%;
+  background-color: #ffffff40;
+  border-radius: 0px 0px 10px 10px;
 }

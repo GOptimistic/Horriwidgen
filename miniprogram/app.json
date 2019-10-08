@@ -14,7 +14,8 @@
     "pages/mainwindow/rooms/checkGuest/checkGuest",
     "pages/mainwindow/search/search",
     "pages/camera/camera",
-    "pages/camera2/camera2"
+    "pages/camera2/camera2",
+    "pages/mainwindow/cities/cities"
   ],
   "permission": {
     "scope.userLocation": {

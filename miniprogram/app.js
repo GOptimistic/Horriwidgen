@@ -4,7 +4,9 @@
 App({
   globalData:{
     isChecked:false,//判断是否进行了人脸识别
-    guestPhone:''//用户的手机号
+    guestPhone:'',//用户的手机号
+    province:'',//选择的省份
+    city:''//选择的城市
   },
     onLaunch: function () {
       if (!wx.cloud) {
