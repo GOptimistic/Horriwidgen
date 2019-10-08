@@ -15,6 +15,13 @@
 <slider bindchange="durationChange" show-value min="1000" max="10000" /> -->
   <view class="home-info-container">
     <view class="home-info">
+      <view class="home-info-position" bindtap="toCitiesPage" bindsubmit="formSubmit" bindreset="formReset">
+        <text class="home-info-position-text">选择城市</text>
+        <input class='home-info-position-content' placeholder-class='plhStyle' type='number' maxlength='50' placeholder='' bindinput="bindKeyInput" value='{{province}} {{city}}' disabled='disabled' name='home-city'></input>
+      </view>
+      <view class="home-info-line"></view>
+      <view class="home-info-date">
+      </view>
     </view>
     <button class="home-book-btn" id="home_book_btn" bindtap="toSearchPage">预定酒店</button>
   </view>

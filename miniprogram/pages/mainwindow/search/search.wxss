@@ -1,6 +1,9 @@
 /* miniprogram/pages/mainwindow/search/search.wxss */
 .search-top{
   flex-direction:row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 10%;
   width: 100%;
   border-color: rgba(112, 112, 112, 0.781);
@@ -13,11 +16,12 @@
   align-items: center;
   justify-content: center;
   background-color: #ECECEC;
-  height: 80%;
-  width: 24%;
+  height: 40px;
+  width: 23%;
   border-radius: 10px;
-  margin: 5rpx;
-  border-left: 5rpx;
+  border-left: 10px;
+  margin-top: 10px;
+  margin-right: 10px;
 }
 
 .date_box{
@@ -38,4 +42,21 @@
 }
 .date_box>view text{
   padding-left: 10rpx;
+}
+
+.search-input{
+  flex-direction:row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 60%;
+  background-color: #ECECEC;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.search-keyword{
+  background-color: red;
+  height: 40px;
 }

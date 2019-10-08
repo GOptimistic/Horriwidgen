@@ -2,16 +2,27 @@
 <view class="search-top">
   <view class="search-time">
     <view class='weui-flex__item'>
-    <navigator url='/pages/date/date?isorder=false&id=null' hover-class='nav'>
-      住
-      <text>{{occupancy}}</text>
-    </navigator>
+      <navigator url='/pages/date/date?isorder=false&id=null' hover-class='nav'>
+        住
+        <text>{{occupancy}}</text>
+      </navigator>
+    </view>
+    <view class='weui-flex__item'>
+      <navigator url='/pages/date/date?isorder=false&id=null' hover-class='nav'>
+        离
+        <text>{{leave}}</text>
+      </navigator>
+    </view>
   </view>
-  <view class='weui-flex__item'>
-    <navigator url='/pages/date/date?isorder=false&id=null' hover-class='nav'>
-      离
-      <text>{{leave}}</text>
-    </navigator>
-  </view>
+  <view class="search-input">
+    <view class="section">
+      <view class="section__title">省市区</view>
+      <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+        <view class="picker">
+          <!-- 当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}} -->
+        </view>
+      </picker>
+    </view>
+    <input class="search-keyword"></input>
   </view>
 </view>
