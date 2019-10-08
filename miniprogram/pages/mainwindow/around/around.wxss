@@ -99,9 +99,10 @@ map {
 .map_container{
   position: absolute;
   top: 0;
-  bottom: 80px;
+  bottom: 0rpx;
   left: 0;
   right: 0;
+  height: 900rpx;
 }
 .map{
   width: 100%;
@@ -112,9 +113,10 @@ map {
   left: 0;
   right: 0;
   bottom: 0px;
-  height: 80px;
+  height: 200rpx;
   background: #fff;
   padding: 0 15px;
+
 }
 text{
   margin: 5px 0;

@@ -16,18 +16,8 @@
   </map>
 </view>-->
 
-<!-- <view style='width:100%;height:{{height}}px;'> -->
- <!-- <view style='width:100%;height:100%;'>  
- <view class='row'>
- <button bindtap='search' data-type='酒店' class='nav-but'>酒店</button>
- <button bindtap='search' data-type='美食' class='nav-but'>美食</button>
- <button bindtap='search' data-type='书店' class='nav-but'>书店</button>
- <button bindtap='search' data-type='商城' class='nav-but'>商城</button>
- </view> 
 
- <map id="map" longitude='{{poi.longitude}}' latitude='{{poi.latitude}}' scale='16' markers='{{markers}}' style='width:100%;height:100%;' show-location bindmarkertap='gotoHere'></map>
-</view>
-<view class='info'>
+<!--<view class='info'>
  <navigator wx:for="{{perimeter}}" url="../routes/routes?latitude={{startlat}}&&longitude={{startlng}}&&latitude2={{item.location.lat}}&&longitude2={{item.location.lng}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
   <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
   <view class="weui-media-box__title">{{item.title}}</view>

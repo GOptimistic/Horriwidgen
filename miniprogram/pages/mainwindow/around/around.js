@@ -1,111 +1,3 @@
-// // client/pages/mainwindow/around/around.js
-// const app = getApp()
-// Page({
-
-//   /**
-//    * 页面的初始数据
-//    */
-//   data: {
-//     longitude: 116.4965075, 
-//     latitude: 40.006103, 
-//     speed: 0, 
-//     accuracy: 0 
-//   },
-//   //事件处理函数
-//   bindViewTap: function () {
-//   },
-
-//   /**
-//    * 生命周期函数--监听页面加载
-//    */
-//   onLoad: function () {
-//     var that = this
-//     wx.showLoading({
-//       title: "定位中",
-//       mask: true
-//     })
-//     wx.getLocation({
-//       type: 'gcj02',
-//       altitude: true,//高精度定位
-//       //定位成功，更新定位结果
-//       success: function (res) { 
-//         var latitude = res.latitude        
-//         var longitude = res.longitude        
-//         var speed = res.speed        
-//         var accuracy = res.accuracy               
-        
-//         that.setData({ 
-//           longitude: longitude, 
-//           latitude: latitude, 
-//           speed: speed, 
-//           accuracy: accuracy 
-//         }) 
-//       },
-//       //定位失败回调      
-//       fail:function(){        
-//         wx.showToast({          
-//           title:"定位失败",          
-//           icon:"none"        
-//         })      
-//       },       
-//       complete:function(){        
-//         //隐藏定位中信息进度        
-//         wx.hideLoading()     
-//       }     
-//     })  
-//    },
-   
-//   /**
-//    * 生命周期函数--监听页面初次渲染完成
-//    */
-//   onReady: function () {
-
-//   },
-
-//   /**
-//    * 生命周期函数--监听页面显示
-//    */
-//   onShow: function () {
-
-//   },
-
-//   /**
-//    * 生命周期函数--监听页面隐藏
-//    */
-//   onHide: function () {
-
-//   },
-
-//   /**
-//    * 生命周期函数--监听页面卸载
-//    */
-//   onUnload: function () {
-
-//   },
-
-//   /**
-//    * 页面相关事件处理函数--监听用户下拉动作
-//    */
-//   onPullDownRefresh: function () {
-
-//   },
-
-//   /**
-//    * 页面上拉触底事件的处理函数
-//    */
-//   onReachBottom: function () {
-
-//   },
-
-//   /**
-//    * 用户点击右上角分享
-//    */
-//   onShareAppMessage: function () {
-
-//   }
-// })
-
-
 // var QQMapWX = require('../../../utils/qqmap-wx-jssdk.min.js');
 // var qqmapsdk;
 // var startlat;
@@ -218,7 +110,7 @@
 // })
 
 
-var amapFile = require('../../../utils/amap-wx.js'); 
+//var amapFile = require('../../../utils/amap-wx.js'); 
 // Page({
 //   data: { 
 //     formIdArr: [], 
@@ -348,66 +240,106 @@ var amapFile = require('../../../utils/amap-wx.js');
 // })    
 // },
 // })
+// 引入SDK核心类
+var QQMapWX = require('../../../utils/qqmap-wx-jssdk.min.js');
+var qqmapsdk;
 Page({
-  data: {
-    markers: [],
-    latitude: '',
-    longitude: '',
-    textData: {}
+  data:{
+    textData: {},
   },
-  makertap: function (e) {
-    var id = e.markerId;
-    var that = this;
-    that.showMarkerInfo(markersData, id);
-    that.changeMarkerColor(markersData, id);
-  },
+   
+
   onLoad: function () {
-    var that = this;
-    var myAmapFun = new amapFile.AMapWX({ key: '772c0218b25ab3e814ae50ccd24d8978' });
-    myAmapFun.getPoiAround({
-      iconPathSelected: '../../../images/icons/selectedaround.png', 
-      iconPath: '../../../images/icons/aound.png', 
-      success: function (data) {
-        markersData = data.markers;
-        that.setData({
-          markers: markersData
-        });
-        that.setData({
-          latitude: markersData[0].latitude
-        });
-        that.setData({
-          longitude: markersData[0].longitude
-        });
-        that.showMarkerInfo(markersData, 0);
+    // 实例化API核心类
+    qqmapsdk = new QQMapWX({
+      key: 'I4QBZ-YZQ6O-WKMWW-SJFAR-23GZJ-C3BCU'
+    });
+    var that = this
+    wx.showLoading({
+      title: "定位中",
+      mask: true
+    })
+    wx.getLocation({
+      type: 'gcj02',
+      altitude: true,//高精度定位
+      //定位成功，更新定位结果
+      success: function (res) { 
+        var latitude = res.latitude        
+        var longitude = res.longitude             
+        that.setData({ 
+          longitude: longitude, 
+          latitude: latitude, 
+        }) 
       },
-      fail: function (info) {
-        wx.showModal({ title: info.errMsg })
+      //定位失败回调      
+      fail:function(){        
+        wx.showToast({          
+          title:"定位失败",          
+          icon:"none"        
+        })      
+      },       
+      complete:function(){        
+        //隐藏定位中信息进度        
+        wx.hideLoading()     
+      }     
+    })  
+  },
+  onShow: function () {
+    // 调用接口
+    var that = this;
+    qqmapsdk.search({
+      keyword: '酒店',
+      success: function (res) {
+        console.log(res);
+      },
+      fail: function (res) {
+        console.log(res);
+      },
+      complete: function (res) {
+        console.log(res);
+      }
+    });
+    qqmapsdk.reverseGeocoder({
+      success: function(res) {//成功后的回调
+        console.log(res);
+        var res = res.result;
+        var mks = [];
+
+        //当get_poi为0时或者为不填默认值时，检索目标位置，按需使用
+        mks.push({ // 获取返回结果，放到mks数组中
+          title: res.address,
+          id: 0,
+          latitude: res.location.lat,
+          longitude: res.location.lng,
+          iconPath: '../../../images/icons/location.png',//图标路径
+          width: 20,
+          height: 20,
+          callout: { //在markers上展示地址名称，根据需求是否需要
+            content: res.address,
+            color: '#000',
+            display: 'ALWAYS'
+          }
+        });
+        that.setData({ //设置markers属性和地图位置poi，将结果在地图展示
+          //markers: mks,
+          textData: {
+            name: res.formatted_addresses.recommend,
+            desc: res.address
+          }
+          
+          // poi: {
+          //   latitude: res.location.lat,
+          //   longitude: res.location.lng
+          // }
+        });
+      },
+      fail: function(error) {
+        console.error(error);
+      },
+      complete: function(res) {
+        console.log(res);
       }
     })
-  },
-  showMarkerInfo: function (data, i) {
-    var that = this;
-    that.setData({
-      textData: {
-        name: data[i].name,
-        desc: data[i].address
-      }
-    });
-  },
-  changeMarkerColor: function (data, i) {
-    var that = this;
-    var markers = [];
-    for (var j = 0; j < data.length; j++) {
-      if (j == i) {
-        data[j].iconPath = "../../../images/icons/selectedaround.png";
-      } else {
-        data[j].iconPath = "../../../images/icons/around.png"; 
-      }
-      markers.push(data[j]);
-    }
-    that.setData({
-      markers: markers
-    });
-  }
-
+    },
 })
+
