@@ -13,7 +13,11 @@ Page({
     })
     console.log(this.data.msg);
   },
-
+  backToHome:function(){
+    wx.reLaunch({
+      url: '../mainwindow/homepage/homepage',
+    })
+  },
   //拍照并编码
   takePhoto() {
     //拍照

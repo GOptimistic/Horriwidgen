@@ -15,9 +15,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
     const eventChannel = this.getOpenerEventChannel();
     eventChannel.on('acceptDataFromOpenerPage', function (data) {
-      console.log(data)
+      console.log(data);
+      that.setData({
+        guestName:data.guestName
+      });
+      console.log(that.data.guestName);
+    });
+    db.collection('guests').where({
+      guestName: that.data.guestName
+    }).get({
+      success(res) {
+        // res.data 包含该记录的数据
+        console.log(res.data);
+        that.setData({
+          sex:res.data.sex,
+          birthDate:res.data.birthDate,
+          IDNumber:res.data.IDNumber
+        })
+        //console.log(that.data.roomArray);
+      }
     });
   },
 
