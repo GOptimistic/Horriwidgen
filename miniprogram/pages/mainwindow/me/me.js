@@ -12,6 +12,12 @@ Page({
   },
 
   onLoad: function () {
+    console.log(app.globalData);
+    if (!app.globalData.isChecked) {
+      wx.redirectTo({
+        url: "../../camera2/camera2?page=me"
+      })
+    }
     var that = this;
     // 查看是否授权
     wx.getSetting({
