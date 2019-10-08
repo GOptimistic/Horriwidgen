@@ -2,7 +2,7 @@
 
 .swiper-tab {
   width: 100%;
-  border-bottom: 2rpx solid #777;
+  border-bottom: 2rpx solid rgb(119, 119, 119);
   text-align: center;
   line-height: 80rpx;
 }
@@ -11,12 +11,12 @@
   font-size: 35rpx;
   display: inline-block;
   width: 20%;
-  color: #777;
+  color: rgb(119, 119, 119);
 }
 
 .on {
-  color: #da7c0c;
-  border-bottom: 5rpx solid #da7c0c;
+  color: #0b919b;
+  border-bottom: 5rpx solid #0b919b;
 }
 
 .swiper-box {
@@ -27,34 +27,52 @@
 }
 
 .swiper-box view {
-  text-align: center;
+  text-align: left;
 }
 .listy{
-  padding: 30rpx;
+  padding-top: 50rpx;
 }
 .listy .item{
-  width: 700rpx;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border:2px double #2BD5D5;
-  border-radius: 20rpx;
-  padding-top: 20rpx;
-  margin-bottom: 20rpx;
-}
-.listy .item .container-info{
-  width: 700rpx;
-  padding-left: 50rpx;
+  width: 550rpx;
+  height: 200rpx;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  border:2px double rgb(167, 39, 56);
+  border-radius: 20rpx;
+  box-shadow: 5rpx 5rpx 5rpx #888888;
+  padding-top: 50rpx;
+  margin-bottom: 50rpx;
+  margin-left: 100rpx;
+  margin-right:100rpx;
+}
+.listy .item .container-info{
+  width: 550rpx;
+  height: 200rpx;
+  display: flex;
+  flex-direction: row;
+  padding-left: 50rpx;
   align-items: space-between;
   font-size: 30rpx;
 }
+.roomtype{
+  font-size: 25rpx;
+}
+.name{
+  line-height: 50rpx;
+  font-size: 35rpx;
+}
+.time{
+  font-size: 25rpx;
+}
 .listy .item .container-info.orderinfo{
-  width: 500rpx;
+  width: 400rpx;
   display: flex;
   flex-direction: column;
   align-items: space-between;
+}
+.listy.item.container-info.container-image{
+ width: 150rpx;
 }
 .listy .item .container-btn{
   width: 500rpx;
