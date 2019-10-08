@@ -32,9 +32,13 @@ Page({
         });
       }
     });*/
-    db.collection('rooms').get({
+    db.collection('orders').where({
+      guestPhone:app.globalData.guestPhone,
+      isComplete:false
+    }).get({
       success(res) {
         // res.data 包含该记录的数据
+        console.log(res.data);
         var roomArray = res.data;
         that.setData({
           roomArray:roomArray
@@ -51,8 +55,8 @@ Page({
     checkInfo.roomID = e.currentTarget.dataset.roomid;
     //console.log(checkInfo);
     wx.navigateTo({
-      //url: './checkGuest/checkGuest',
-      url: '../../camera2/camera2',
+      url: './checkGuest/checkGuest',
+      //url: '../../camera2/camera2',
       success: function (res) {
         // 通过eventChannel向被打开页面传送数据
         res.eventChannel.emit('acceptDataFromOpenerPage', { data: checkInfo })
