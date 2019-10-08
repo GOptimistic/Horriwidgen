@@ -89,6 +89,27 @@ Page({
                   url: "../mainwindow/rooms/rooms"
                 });
               }
+              switch (that.data.msg){
+                case "rooms":
+                  wx.reLaunch({
+                    url: "../mainwindow/rooms/rooms"
+                  });
+                  break;
+                case  "orders":
+                  wx.reLaunch({
+                    url: "../mainwindow/orders/orders"
+                  });
+                  break;
+                case "me":
+                  wx.reLaunch({
+                    url: "../mainwindow/me/me"
+                  });
+                  break;
+                default:
+                  wx.reLaunch({
+                    url: "../mainwindow/homepage/homepage"
+                  });
+              }
               console.log(app.globalData);
             }
           }
