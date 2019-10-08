@@ -1,4 +1,4 @@
-<!--client/pages/mainwindow/around/around.wxml-->
+<!--client/pages/mainwindow/around/around.wxml
 <view class='view'>  
   <map longitude="{{longitude}}" latitude="{{latitude}}" markers="{{markers}}" covers="{{covers}}" show-location>    
   <!-- <cover-view>    
@@ -12,7 +12,47 @@
   </cover-view>    
   <cover-view>    
   精度：{{accuracy}}    
-  </cover-view>   -->
+  </cover-view>  
   </map>
+</view>-->
+
+<!-- <view style='width:100%;height:{{height}}px;'> -->
+ <!-- <view style='width:100%;height:100%;'>  
+ <view class='row'>
+ <button bindtap='search' data-type='酒店' class='nav-but'>酒店</button>
+ <button bindtap='search' data-type='美食' class='nav-but'>美食</button>
+ <button bindtap='search' data-type='书店' class='nav-but'>书店</button>
+ <button bindtap='search' data-type='商城' class='nav-but'>商城</button>
+ </view> 
+
+ <map id="map" longitude='{{poi.longitude}}' latitude='{{poi.latitude}}' scale='16' markers='{{markers}}' style='width:100%;height:100%;' show-location bindmarkertap='gotoHere'></map>
+</view>
+<view class='info'>
+ <navigator wx:for="{{perimeter}}" url="../routes/routes?latitude={{startlat}}&&longitude={{startlng}}&&latitude2={{item.location.lat}}&&longitude2={{item.location.lng}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+  <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+  <view class="weui-media-box__title">{{item.title}}</view>
+   <view class="weui-media-box__desc">位置：{{item.address}} </view> 
+  </view>
+ </navigator>
+</view> -->
+
+<!-- <view class="menu-item-api-list docList">    
+<map class="map" longitude="{{longitude}}" latitude="{{latitude}}"  include-points="{{points}}"     markers='{{markers}}' bindmarkertap="makertap">        
+<cover-view class="map-tab-bar">          
+<cover-view class="map-tab-li {{item.id == status ? 'active' : ''}}"  bindtap="getType" data-type="{{item.id}}" wx:key="aroundListId" wx:for="{{aroundList}}">
+{{item.name}}          
+</cover-view>        
+</cover-view>         
+<cover-view class="map-foot" wx:if="{{showmark}}">            
+<cover-view class="mapName">{{textData.name}}</cover-view>            <cover-view class="mapDesc">{{textData.desc}}</cover-view>        </cover-view>    
+</map>
+</view> -->
+
+<view class="map_container">
+  <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap"></map>
+</view>
+<view class="map_text">
+  <text class="h1">{{textData.name}}</text>
+  <text>{{textData.desc}}</text>
 </view>
 
