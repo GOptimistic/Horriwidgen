@@ -11,7 +11,7 @@ Page({
     // 离开时间
     leave: '',
     city: '',
-    productList: new Array,
+    productList:'',
     pageSize: 8,
     more: true,
     page: 1,
@@ -23,10 +23,21 @@ Page({
   onLoad: function (options) {
     // 产品列表
     let that = this;
-    let productData = {
+    /*let productData = {
       categoryId: 17355
     }
-    util.getProductList(productData, that);
+    util.getProductList(productData, that);*/
+    const db = wx.cloud.database();
+    db.collection('rooms').get({
+      success(res) {
+        // res.data 包含该记录的数据
+        console.log(res.data);
+        that.setData({
+          productList: res.data
+        })
+        //console.log(that.data.roomArray);
+      }
+    });
   },
 
   /**

@@ -24,7 +24,12 @@
 </view>
 <view class="search-line"></view>
 <view class="search-container">
-  <template is="productItem" data="{{productList}}"></template>
+  <view is="productItem" wx:for="{{productList}}">
+    <view class='orderinfo'>
+      <view>{{item.roomType}}</view>
+      <view>{{item.roomID}}</view>
+    </view>
+  </view>
 </view>
 <view class='getmore' wx:if="{{more}}">
   <view bindtap='getmore'>加载更多</view>
