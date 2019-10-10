@@ -1,6 +1,8 @@
 // client/pages/mainwindow/homepage/homepage.js
 const app = getApp();
 var QQMapWX = require('../../../utils/qqmap-wx-jssdk.js');
+var util = require('../../../utils/util.js')
+time: util.formatTime(new Date)
 var qqmapsdk;
 Page({
   // data: {
@@ -24,6 +26,10 @@ Page({
     latitude: '',
     longitude: '',
     getLocal: true,
+    // 入住时间
+    occupancy: null,
+    // 离开时间
+    leave: null,
     imgUrls: [
       'http://m.qpic.cn/psb?/V12p8Tks3RZSb7/FP*g4VYkT3Fd4H6Qk28xiXs1dI*5TC3g10Ep4PVH2p4!/b/dDABAAAAAAAA&bo=xQLdAQAAAAARBys!&rf=viewer_4',
       'http://m.qpic.cn/psb?/V12p8Tks3RZSb7/rgaP4eJ6*Lq5y9j4617VaQD9XA8IBXY1bAJRNA42TBE!/b/dFMBAAAAAAAA&bo=IAPPAQAAAAARB90!&rf=viewer_4',
@@ -47,6 +53,13 @@ Page({
       url: '../cities/cities',
     })
   },
+
+  toDatePage(){
+    wx.navigateTo({
+      url: '../date/date?isorder=false&id=null',
+    })
+  },
+  
   /**
    * 生命周期函数--监听页面加载
    */
@@ -67,13 +80,35 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    //判断是否首次打开，首次打开定位，非首次打开则为用户选择的城市
     if(this.data.getLocal){
       let vm = this;
       vm.getUserLocation();
       this.setData({getLocal: false})
     }else{
-      this.setData({ city: app.globalData.city})
-      this.setData({ province: app.globalData.province })
+        this.setData({ city: app.globalData.city })
+        this.setData({ province: app.globalData.province })
+    }
+
+    // 获得入住时间及离店时间
+    let value = wx.getStorageSync('time');
+    let occupancy, leave;
+    // 判断是否已选择入住及离开时间
+    if (value) {
+      occupancy = value[0];
+      leave = value[1];
+      this.setData({
+        occupancy: occupancy,
+        leave: leave
+      });
+    } else {
+      // 未选择，默认当天及次日
+      occupancy = util.getDateStr(null, 0);
+      leave = util.getDateStr(null, 1);
+      this.setData({
+        occupancy: occupancy,
+        leave: leave
+      });
     }
   },
 
@@ -195,12 +230,12 @@ Page({
         let province = res.result.ad_info.province
         let city = res.result.ad_info.city
         vm.setData({
-          province: province,
+          //province: province,
           city: city,
           latitude: latitude,
           longitude: longitude
         })
-
+        app.globalData.city=city;
       },
       fail: function(res) {
         console.log(res);

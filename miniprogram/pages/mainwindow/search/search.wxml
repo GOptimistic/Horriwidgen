@@ -15,14 +15,13 @@
     </view>
   </view>
   <view class="search-input">
-    <view class="section">
-      <view class="section__title">省市区</view>
-      <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
-        <view class="picker">
-          <!-- 当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}} -->
-        </view>
-      </picker>
+    <view class="search-input-city">
+      <text class="search-input-city-text">{{city}}</text>
     </view>
-    <input class="search-keyword"></input>
+    <view class="search-input-line"></view>
+    <input class="search-keyword" placeholder="   搜索酒店名、地标" placeholder-class="search-keyword-plhd"></input>
   </view>
+</view>
+<view class="search-line"></view>
+<view class="search-container">
 </view>

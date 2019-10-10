@@ -1,0 +1,38 @@
+<!--miniprogram/pages/mainwindow/date/date.wxml-->
+<!--pages/date/date.wxml-->
+<view class="headbox2">
+  <view class="headdate">日</view>
+  <view class="headdate">一</view>
+  <view class="headdate">二</view>
+  <view class="headdate">三</view>
+  <view class="headdate">四</view>
+  <view class="headdate">五</view>
+  <view class="headdate">六</view>
+</view>
+<view class="headbox">
+  <view class="headdate">日</view>
+  <view class="headdate">一</view>
+  <view class="headdate">二</view>
+  <view class="headdate">三</view>
+  <view class="headdate">四</view>
+  <view class="headdate">五</view>
+  <view class="headdate">六</view>
+</view>
+<view class="mouth" wx:for="{{date}}" wx:for-item="date" wx:for-index="index" wx:key="index">
+  <view class="mouthhead">{{date[index].year}}年{{date[index].month}}月</view>
+  <view class="daybox">
+    <view class="day" wx:if="{{weeks[index]>0}}"></view>
+    <view class="day" wx:if="{{weeks[index]>1}}"></view>
+    <view class="day" wx:if="{{weeks[index]>2}}"></view>
+    <view class="day" wx:if="{{weeks[index]>3}}"></view>
+    <view class="day" wx:if="{{weeks[index]>4}}"></view>
+    <view class="day" wx:if="{{weeks[index]>5}}"></view>
+    <view class="day {{item.selected == 1 ? 'bc':''}}  {{item.center==1?'bc3':''}}" wx:for="{{date}}" wx:for-index="idx" wx:key="idx" data-index="{{index}}" data-indexs="{{idx}}" bindtap="selectday">
+      {{date[idx].day}}
+      <view class="actname2 {{item.selected == 1 ? 'bc2':''}}" wx:if="{{index==occupancy[0]&&idx==occupancy[1]}}">入住</view>
+      <view class="actname2 {{item.selected == 1 ? 'bc2':''}}" wx:if="{{index==leave[0]&&idx==leave[1]}}">离开</view>
+    </view>
+  </view>
+</view>
+<view class="none88"></view>
+<view class="fixedbtn" bindtap="submitbtn">确认选择</view>

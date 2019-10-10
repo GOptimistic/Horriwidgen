@@ -68,3 +68,20 @@ page{
   background-color: #ffffff40;
   border-radius: 0px 0px 10px 10px;
 }
+
+.home-info-dateSelect{
+  flex-direction:row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1%;
+  margin-right: 16%;
+}
+
+.home-info-date-start{
+  width: 38%;
+}
+
+.home-info-date-end{
+  width: 40%;
+}

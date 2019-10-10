@@ -15,7 +15,8 @@
     "pages/mainwindow/search/search",
     "pages/camera/camera",
     "pages/camera2/camera2",
-    "pages/mainwindow/cities/cities"
+    "pages/mainwindow/cities/cities",
+    "pages/mainwindow/date/date"
   ],
   "permission": {
     "scope.userLocation": {

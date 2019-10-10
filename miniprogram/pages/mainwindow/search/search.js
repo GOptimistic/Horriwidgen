@@ -7,9 +7,10 @@ Page({
    */
   data: {
     // 入住时间
-    occupancy: null,
+    occupancy: '',
     // 离开时间
-    leave: null,
+    leave: '',
+    city: '',
   },
 
   /**
@@ -51,6 +52,10 @@ Page({
         leave: leave
       });
     }
+
+    this.setData({
+      city: app.globalData.city
+    })
   },
 
   /**

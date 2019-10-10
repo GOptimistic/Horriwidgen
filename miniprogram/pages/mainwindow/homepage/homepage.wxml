@@ -20,7 +20,17 @@
         <input class='home-info-position-content' placeholder-class='plhStyle' type='number' maxlength='50' placeholder='' bindinput="bindKeyInput" value='{{province}} {{city}}' disabled='disabled' name='home-city'></input>
       </view>
       <view class="home-info-line"></view>
-      <view class="home-info-date">
+      <view class="home-info-date" bindtap="toDatePage">
+        <text class="home-info-position-text">选择时间</text>
+        <view class="home-info-dateSelect">
+          <navigator  hover-class='nav' class="home-info-date-start">
+            <text>{{occupancy}}</text>
+          </navigator>
+          <navigator hover-class='nav' class="home-info-date-end">
+            - 
+            <text>{{leave}}</text>
+          </navigator>
+        </view>
       </view>
     </view>
     <button class="home-book-btn" id="home_book_btn" bindtap="toSearchPage">预定酒店</button>
