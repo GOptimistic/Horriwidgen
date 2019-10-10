@@ -23,10 +23,6 @@ Page({
   onLoad: function (options) {
     // 产品列表
     let that = this;
-    /*let productData = {
-      categoryId: 17355
-    }
-    util.getProductList(productData, that);*/
     const db = wx.cloud.database();
     db.collection('rooms').get({
       success(res) {

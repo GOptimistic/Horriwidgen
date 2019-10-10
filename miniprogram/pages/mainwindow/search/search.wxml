@@ -1,36 +1,49 @@
 <!--miniprogram/pages/mainwindow/search/search.wxml-->
-<view class="search-top">
-  <view class="search-time">
-    <view class='weui-flex__item'>
-      <navigator url='/pages/date/date?isorder=false&id=null' hover-class='nav'>
-        住
-        <text>{{occupancy}}</text>
-      </navigator>
+<view class="search-page">
+  <view class="search-top">
+    <view class="search-time">
+      <view class='weui-flex__item'>
+        <navigator url='/pages/date/date?isorder=false&id=null' hover-class='nav'>
+          住
+          <text>{{occupancy}}</text>
+        </navigator>
+      </view>
+      <view class='weui-flex__item'>
+        <navigator url='/pages/date/date?isorder=false&id=null' hover-class='nav'>
+          离
+          <text>{{leave}}</text>
+        </navigator>
+      </view>
     </view>
-    <view class='weui-flex__item'>
-      <navigator url='/pages/date/date?isorder=false&id=null' hover-class='nav'>
-        离
-        <text>{{leave}}</text>
-      </navigator>
-    </view>
-  </view>
-  <view class="search-input">
-    <view class="search-input-city">
-      <text class="search-input-city-text">{{city}}</text>
-    </view>
-    <view class="search-input-line"></view>
-    <input class="search-keyword" placeholder="   搜索酒店名、地标" placeholder-class="search-keyword-plhd"></input>
-  </view>
-</view>
-<view class="search-line"></view>
-<view class="search-container">
-  <view is="productItem" wx:for="{{productList}}">
-    <view class='orderinfo'>
-      <view>{{item.roomType}}</view>
-      <view>{{item.roomID}}</view>
+    <view class="search-input">
+      <view class="search-input-city">
+        <text class="search-input-city-text">{{city}}</text>
+      </view>
+      <view class="search-input-line"></view>
+      <input class="search-keyword" placeholder="   搜索酒店名、地标" placeholder-class="search-keyword-plhd"></input>
     </view>
   </view>
-</view>
-<view class='getmore' wx:if="{{more}}">
+  <view class="search-line"></view>
+  <view class="search-container">
+    <view is="productItem" wx:for="{{productList}}">
+      <view class='search-roominfo'>
+        <image src="{{item.imgUrl}}" class="search-img" mode='widthFix'></image>
+        <view class="search-roominfo-text">
+          <view class="search-roominfo-noprice">
+            <view class="search-roomType">{{item.roomType}}</view>
+            <view class="search-details">
+              <view class="search-areaSize">{{item.areaSize}}</view>
+              <view class="search-breakfast">{{item.breakfast}}</view>
+              <view class="search-window">{{item.window}}</view>
+            </view>
+          </view>
+          <view class="search-price">￥{{item.price}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="search-bottom-empty"></view>
+  </view>
+  <!-- <view class='getmore' wx:if="{{more}}">
   <view bindtap='getmore'>加载更多</view>
+</view> -->
 </view>
