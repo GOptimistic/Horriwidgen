@@ -5,10 +5,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-    guestName:'管政',
-    sex:'男',
-    birthDate:'1999-0-00',
-    IDNumber:'1111111'
+    guestName:'',
+    sex:'',
+    birthDate:'',
+    IDNumber:'',
+    roomID: '',
+  },
+
+  confirmCheckin(){
+    const db = wx.cloud.database();
+    db.collection('orders').doc(roomID).update({
+      // data 传入需要局部更新的数据
+      data: {
+        checkInOut: "退房",
+        lockDis: false,
+      },
+      success: function (res) {
+        console.log(res.data)
+      }
+    })
   },
 
   /**
@@ -16,11 +31,13 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    const db = wx.cloud.database();
     const eventChannel = this.getOpenerEventChannel();
     eventChannel.on('acceptDataFromOpenerPage', function (data) {
       console.log(data);
       that.setData({
-        guestName:data.guestName
+        guestName:data.guestName,
+        roomID: data.roomID
       });
       console.log(that.data.guestName);
     });

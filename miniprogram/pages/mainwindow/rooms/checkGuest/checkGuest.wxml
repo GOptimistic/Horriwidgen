@@ -1,7 +1,7 @@
 <!--miniprogram/pages/mainwindow/rooms/checkGuest/checkGuest.wxml-->
 <view class="title">请核对入住人信息</view>
 <scroll-view class='listy'>
-  <view class='item' wx:for='[1]'>
+  <view class='item'>
     <view class='container-info'>
       <view class='guestinfo'>
         <view class="text">姓名：</view>
@@ -21,4 +21,4 @@
     </view>
   </view>
 </scroll-view>
-<button class="btn1">确认入住</button>
+<button class="btn1" bindtap="confirmCheckin">确认入住</button>
