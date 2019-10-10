@@ -76,6 +76,7 @@ page{
   justify-content: center;
   margin-top: 1%;
   margin-right: 16%;
+  size:14px;
 }
 
 .home-info-date-start{
