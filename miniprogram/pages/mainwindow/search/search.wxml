@@ -24,4 +24,8 @@
 </view>
 <view class="search-line"></view>
 <view class="search-container">
+  <template is="productItem" data="{{productList}}"></template>
+</view>
+<view class='getmore' wx:if="{{more}}">
+  <view bindtap='getmore'>加载更多</view>
 </view>

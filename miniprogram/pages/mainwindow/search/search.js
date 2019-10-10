@@ -11,13 +11,22 @@ Page({
     // 离开时间
     leave: '',
     city: '',
+    productList: new Array,
+    pageSize: 8,
+    more: true,
+    page: 1,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // 产品列表
+    let that = this;
+    let productData = {
+      categoryId: 17355
+    }
+    util.getProductList(productData, that);
   },
 
   /**
@@ -91,5 +100,19 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  getmore: function () {
+    let that = this;
+    that.setData({
+      page: ++that.data.page
+    })
+    console.log(that.data.page);
+    let productData = {
+      categoryId: 17355,
+      page: that.data.page,
+      pageSize: that.data.pageSize,
+    }
+    util.getProductList(productData, that);
   }
 })
