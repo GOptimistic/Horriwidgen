@@ -47,7 +47,7 @@
   <text class="h1">{{textData.name}}</text>
   <text>{{textData.desc}}</text>
 </view>
-<button class='bottom' bindtap="toAroundlist" >
+<button class='bottom' bindtap="toAroundlist" style="width:180rpx;height:90rpx" >
             周边
 </button>
 </view>

@@ -2,6 +2,7 @@
   "pages": [
     "pages/mainwindow/homepage/homepage",
     "pages/mainwindow/around/around",
+    "pages/mainwindow/around/aroundlist",
     "pages/mainwindow/me/me",
     "pages/mainwindow/orders/orders",
     "pages/mainwindow/rooms/rooms",
@@ -23,6 +24,14 @@
       "desc": "你的位置信息将仅用于此页面"
     }
   },
+  
+  "plugins": {
+    "routePlan": {
+      "version": "1.0.1",
+      "provider": "wx50b5593e81dd937a"
+    }
+  },
+
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
@@ -68,4 +77,4 @@
     "borderStyle": "white"
   },
   "sitemapLocation": "sitemap.json"
-}
+} 

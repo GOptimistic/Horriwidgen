@@ -1,5 +1,6 @@
 var QQMapWX = require('../../../utils/qqmap-wx-jssdk.min.js');
 var qqmapsdk;
+var app = getApp();
 Page({
 
   /**
@@ -23,54 +24,10 @@ Page({
     });
     that.setData({
       location:{
-        latitude: options.latitude,
+        latitude:options.latitude,
         longitude:options.longitude,
       }
-    })
-    qqmapsdk.reverseGeocoder({
-      location:{
-        latitude: location.latitude,
-        longitude:location.longitude,
-      },
-      success: function (res) {//成功后的回调
-        var res = res.result;
-        var mks = [];
-
-        //当get_poi为0时或者为不填默认值时，检索目标位置，按需使用
-        mks.push({ // 获取返回结果，放到mks数组中
-          title: res.address,
-          id: 0,
-          latitude: res.location.lat,
-          longitude: res.location.lng,
-          iconPath: '../../../images/icons/location.png',//图标路径
-          width: 20,
-          height: 20,
-          callout: { //在markers上展示地址名称，根据需求是否需要
-            content: res.address,
-            color: '#000',
-            display: 'ALWAYS'
-          }
-        });
-        that.setData({ //设置markers属性和地图位置poi，将结果在地图展示
-          markers: mks,
-          textData: {
-            name: res.formatted_addresses.recommend,
-            desc: res.address
-          }
-
-          // poi: {
-          //   latitude: res.location.lat,
-          //   longitude: res.location.lng
-          // }
-        });
-      },
-      fail: function (error) {
-        console.error(error);
-      },
-      complete: function (res) {
-        console.log(res);
-      }
-    })
+    });
   },
 
   /**
@@ -142,6 +99,9 @@ Page({
       },
       fail: function (res) {
         console.log("失败");
+        that.setData({
+          aroundArray: "",
+        })
       },
       complete: function (res) {
         console.log("完成");
@@ -150,12 +110,67 @@ Page({
   },
   aroundPlace: function(e) {
     var loc = e.currentTarget.dataset.loc;
-    console.log(loc);
+    var locname = e.currentTarget.dataset.locname;
+    console.log(loc);    
+    let plugin = requirePlugin('routePlan');
+    let key = 'I4QBZ-YZQ6O-WKMWW-SJFAR-23GZJ-C3BCU';  //使用在腾讯位置服务申请的key
+    let referer = 'horriwidgen';   //调用插件的app的名称
+    let endPoint = JSON.stringify({  //终点
+      'name': locname,
+      'latitude': loc.lat,
+      'longitude': loc.lng
+    });
     wx.navigateTo({
-      url: './aroundplace?latitude=' + loc.lat + '&longitude=' + loc.lng,
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
-    })
-  }
+      url: 'plugin://routePlan/index?key=' + key + '&referer=' + referer + '&endPoint=' + endPoint
+    });
+
+  },
+
+  // backfill: function (e) {
+  //   var id = e.currentTarget.id;
+  //   for (var i = 0; i < this.data.suggestion.length; i++) {
+  //     if (i == id) {
+  //       this.setData({
+  //         backfill: this.data.suggestion[i].title
+  //       });
+  //     }
+  //   }
+  // },
+
+  // //触发关键词输入提示事件
+  // getsuggest: function (e) {
+  //   var _this = this;
+  //   //调用关键词提示接口
+  //   qqmapsdk.getSuggestion({
+  //     //获取输入框值并设置keyword参数
+  //     keyword: e.detail.value, //用户输入的关键词，可设置固定值,如keyword:'KFC'
+  //     region: app.globalData.city,
+  //     location: _this.data.location.latitude + ',' + _this.data.location.longitude,
+  //     success: function (res) {//搜索成功后的回调
+  //     console.log(_this.data.location.latitude + ',' + _this.data.location.longitude);
+  //       console.log(res);
+  //       var sug = [];
+  //       for (var i = 0; i < res.data.length; i++) {
+  //         sug.push({ // 获取返回结果，放到sug数组中
+  //           title: res.data[i].title,
+  //           id: res.data[i].id,
+  //           addr: res.data[i].address,
+  //           city: res.data[i].city,
+  //           district: res.data[i].district,
+  //           latitude: res.data[i].location.lat,
+  //           longitude: res.data[i].location.lng
+  //         });
+  //       }
+  //       _this.setData({ //设置suggestion属性，将关键词搜索结果以列表形式展示
+  //         suggestion: sug
+  //       });
+  //     },
+  //     fail: function (error) {
+  //       console.error(error);
+  //     },
+  //     complete: function (res) {
+  //       console.log(res);
+  //     }
+  //   });
+  //}
 })
