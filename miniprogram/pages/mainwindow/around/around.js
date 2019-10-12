@@ -287,21 +287,20 @@ Page({
   onShow: function () {
     // 调用接口
     var that = this;
-    qqmapsdk.search({
-      keyword: '酒店',
-      success: function (res) {
-        console.log(res);
-      },
-      fail: function (res) {
-        console.log(res);
-      },
-      complete: function (res) {
-        console.log(res);
-      }
-    });
+    // qqmapsdk.search({
+    //   keyword: '酒店',
+    //   success: function (res) {
+    //     console.log(res);
+    //   },
+    //   fail: function (res) {
+    //     console.log(res);
+    //   },
+    //   complete: function (res) {
+    //     console.log(res);
+    //   }
+    // });
     qqmapsdk.reverseGeocoder({
       success: function(res) {//成功后的回调
-        console.log(res);
         var res = res.result;
         var mks = [];
 
@@ -340,6 +339,15 @@ Page({
         console.log(res);
       }
     })
-    },
+  },
+  toAroundlist:function(){
+    var that = this
+    wx.navigateTo({
+      url: './aroundlist?latitude=' + that.data.latitude + '&longitude=' + that.data.longitude,
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  }
 })
 
