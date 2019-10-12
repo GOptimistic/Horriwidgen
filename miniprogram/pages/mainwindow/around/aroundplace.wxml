@@ -1,0 +1,14 @@
+<view class="map_container">
+  <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap"></map> 
+</view>
+<view class="map_text">
+<view class="row">
+<view class="col">
+  <text class="h1">{{textData.name}}</text>
+  <text>{{textData.desc}}</text>
+</view>
+<button class='bottom' bindtap="toAroundlist" >
+  去这里
+</button>
+</view>
+</view>
