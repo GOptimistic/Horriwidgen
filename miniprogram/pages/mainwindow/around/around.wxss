@@ -35,11 +35,7 @@ map {
   color: #ffffff;
 }
 
-.row{
-   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-} */
+ */
 
 /* .map{  
   width:100%;  
@@ -89,12 +85,15 @@ map {
 .mapName{  
   font-size: 30rpx;  
   color: #000000;
-}
+}*/
 
-.mapDesc{  
-  font-size: 30rpx;  
-  color: #000000;
-}  */
+.bottom{
+    border-radius: 20rpx;
+    margin: 20rpx 20rpx;
+    font-size: 35rpx;
+    background-color: #2B5F75;
+    color: white;
+}
 
 .map_container{
   position: absolute;
@@ -115,15 +114,29 @@ map {
   bottom: 0px;
   height: 200rpx;
   background: #fff;
-  padding: 0 15px;
+  padding: 0 5px;
 
 }
 text{
-  margin: 5px 0;
+  margin-left: 15rpx;
+  margin-top: 10rpx; 
   display: block;
   font-size:12px;
 }
 .h1{
-  margin: 15px 0;
+  margin-left: 15rpx;
+  margin-top: 20rpx;
   font-size:15px;
+}
+.row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.col{
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }

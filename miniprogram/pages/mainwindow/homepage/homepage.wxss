@@ -72,10 +72,10 @@ page{
 .home-info-dateSelect{
   flex-direction:row;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center;
+  justify-content: center; */
   margin-top: 1%;
-  margin-right: 16%;
+  margin-left: 6%;
   size:14px;
 }
 

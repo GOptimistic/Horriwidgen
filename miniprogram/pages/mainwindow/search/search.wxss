@@ -1,4 +1,9 @@
 /* miniprogram/pages/mainwindow/search/search.wxss */
+.search-page{
+  flex-direction:column;
+  display: flex;
+}
+
 .search-top{
   flex-direction:row;
   display: flex;
@@ -6,8 +11,11 @@
   justify-content: center;
   height: 10%;
   width: 100%;
-  border-color: rgba(112, 112, 112, 0.781);
-  border-width: 10rpx;
+  /* border-color: rgba(112, 112, 112, 0.781);
+  border-width: thin; */
+  border-bottom: 1px;
+  border-bottom-color: rgba(112, 112, 112, 0.781);
+  box-shadow: 0px 3px 3px 0.1px rgba(179, 179, 179, 0.61);
 }
 
 .search-time{
@@ -22,6 +30,7 @@
   border-left: 10px;
   margin-top: 10px;
   margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 .date_box{
@@ -54,6 +63,7 @@
   background-color: #ECECEC;
   border-radius: 10px;
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .search-input-city{
@@ -84,4 +94,66 @@
   height: 3%;
   width: 100%;
   background-color: #252125b6;
+  margin-bottom: 8%;
+  margin-top: 2px;
+}
+
+.search-container{
+  flex-direction:column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-roominfo{
+  width: 630rpx;
+  border-radius: 10%;
+  box-shadow:5px 5px 20px 2px #acabac96;
+  margin-bottom: 10%;
+}
+
+.search-img{
+  border-radius: 10% 10% 0% 0%;
+  width: 100%;
+}
+
+.search-bottom-empty{
+  height: 10%;
+}
+
+.search-roominfo-text{
+  flex-direction:row;
+  display: flex;
+  margin-left: 3%;
+}
+
+.search-roominfo-noprice{
+  margin-left: 3%;
+  margin-top: 3%;
+  width: 60%;
+}
+
+.search-roomType{
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.search-details{
+  flex-direction:row;
+  display: flex;
+}
+
+.search-areaSize,
+.search-breakfast,
+.search-window{
+  margin-right: 3%;
+  font-size: 13px;
+  margin-top: 2%;
+  margin-bottom: 5%;
+}
+
+.search-price{
+  font-size: 22px;
+  color: rgb(182, 0, 0);
+  margin-top: 6%;
 }
