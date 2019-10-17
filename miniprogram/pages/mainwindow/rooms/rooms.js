@@ -6,19 +6,29 @@ Page({
    * 页面的初始数据
    */
   data: {
+    checkInOut:'入住',
+    lockUnlock:'锁门',
+    lockDis:true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const that = this;
     console.log(app.globalData);
     if (!app.globalData.isChecked) {
       wx.redirectTo({
         url: "../../camera2/camera2?page=rooms"
       })
     }
-    const that = this;
+    if (app.globalData.isIN){
+      that.setData({
+        checkInOut: '退房',
+        lockUnlock: '开锁',
+        lockDis: false
+      })
+    }
     const db = wx.cloud.database();
     db.collection('orders').where({
       guestPhone:app.globalData.guestPhone,

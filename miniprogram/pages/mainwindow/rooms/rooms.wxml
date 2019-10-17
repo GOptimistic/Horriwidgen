@@ -18,9 +18,9 @@
     <view class="container-btn">
       <button size="mini" class="btn" disabled="{{item.cleanDis}}">卫生</button>
       <button size="mini" class="btn" bindtap="checkInOut" data-inout="{{item.checkInOut}}" data-guestName="{{item.guestName}}" data-roomID="{{item.roomID}}">
-      {{item.checkInOut}}
+      {{checkInOut}}
       </button>
-      <button size="mini" class="btn" disabled="{{item.lockDis}}">{{item.lockUnlock}}</button>
+      <button size="mini" class="btn" disabled="{{lockDis}}">{{lockUnlock}}</button>
     </view>
   </view>
 </scroll-view>
