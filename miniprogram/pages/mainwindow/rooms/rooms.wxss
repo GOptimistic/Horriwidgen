@@ -12,6 +12,17 @@
   padding-top: 20rpx;
   margin-bottom: 20rpx;
 }
+.listy .item .container-btn{
+  width: 500rpx;
+  height: 70rpx;
+  padding-left: 200rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: space-between;
+  font-size: 10rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
 .listy .item .container-info{
   width: 700rpx;
   padding-left: 50rpx;
