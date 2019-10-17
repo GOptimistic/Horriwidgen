@@ -17,7 +17,10 @@
               <view><text class="name">Horiwidgen南京九龙湖店</text></view>
               <view><text class="time">{{tutil.formatTime(item.startDate)}} 入住 {{tutil.formatTime(item.finishDate)}} 离店</text></view>
             </view>
-            <!-- <view class="container-image"><image src="https://i.loli.net/2019/10/05/igj7LbIfvn1XsHS.jpg" /> </view> -->
+            <view class='container-btn'>
+            <button class='btn1'>详情</button>
+            <button class='btn1'>分享</button>
+            </view>
           </view>
         </view>
       </scroll-view>
@@ -29,21 +32,17 @@
       <view>
         <scroll-view class='listy'>
           <view class='item' wx:for='{{notPayArray}}'>
-            <view class='container-info'>
-              <view class='orderinfo'>
-                <view>酒店 1间 </view>
-                <view>Horiwidgen南京九龙湖店</view>
-                <view>到店：</view>
-                <view>离店：</view>
-              </view>
-              <view class='orderinfo'>
-
-                <view>{{item.roomType}}</view>
-                <view>{{item.roomID}}</view>
-                <view>{{tutil.formatTime(item.startDate)}}</view>
-                <view>{{tutil.formatTime(item.finishDate)}}</view>
-              </view>
+             <view class='container-info'>
+            <view class='orderinfo'>
+              <view><text class="roomtype">酒店 1间 {{item.roomType}}</text></view>
+              <view><text class="name">Horiwidgen南京九龙湖店</text></view>
+              <view><text class="time">{{tutil.formatTime(item.startDate)}} 入住 {{tutil.formatTime(item.finishDate)}} 离店</text></view>
             </view>
+            <view class='container-btn'>
+            <button class='btn1'>详情</button>
+            <button class='btn1'>分享</button>
+            </view>
+          </view>
           </view>
         </scroll-view>
       </view>
@@ -56,20 +55,16 @@
         <scroll-view class='listy'>
           <view class='item' wx:for='{{notCompArray}}'>
             <view class='container-info'>
-              <view class='orderinfo'>
-                <view>酒店 1间 </view>
-                <view>Horiwidgen南京九龙湖店</view>
-                <view>到店：</view>
-                <view>离店：</view>
-              </view>
-              <view class='orderinfo'>
-
-                <view>{{item.roomType}}</view>
-                <view>{{item.roomID}}</view>
-                <view>{{tutil.formatTime(item.startDate)}}</view>
-                <view>{{tutil.formatTime(item.finishDate)}}</view>
-              </view>
+            <view class='orderinfo'>
+              <view><text class="roomtype">酒店 1间 {{item.roomType}}</text></view>
+              <view><text class="name">Horiwidgen南京九龙湖店</text></view>
+              <view><text class="time">{{tutil.formatTime(item.startDate)}} 入住 {{tutil.formatTime(item.finishDate)}} 离店</text></view>
             </view>
+            <view class='container-btn'>
+            <button class='btn1'>详情</button>
+            <button class='btn1'>分享</button>
+            </view>
+          </view>
           </view>
         </scroll-view>
       </view>
@@ -82,20 +77,16 @@
         <scroll-view class='listy'>
           <view class='item' wx:for='{{notEvaArray}}'>
             <view class='container-info'>
-              <view class='orderinfo'>
-                <view>酒店 1间 </view>
-                <view>Horiwidgen南京九龙湖店</view>
-                <view>到店：</view>
-                <view>离店：</view>
-              </view>
-              <view class='orderinfo'>
-
-                <view>{{item.roomType}}</view>
-                <view>{{item.roomID}}</view>
-                <view>{{tutil.formatTime(item.startDate)}}</view>
-                <view>{{tutil.formatTime(item.finishDate)}}</view>
-              </view>
+            <view class='orderinfo'>
+              <view><text class="roomtype">酒店 1间 {{item.roomType}}</text></view>
+              <view><text class="name">Horiwidgen南京九龙湖店</text></view>
+              <view><text class="time">{{tutil.formatTime(item.startDate)}} 入住 {{tutil.formatTime(item.finishDate)}} 离店</text></view>
             </view>
+            <view class='container-btn'>
+            <button class='btn1'>详情</button>
+            <button class='btn1'>分享</button>
+            </view>
+          </view>
           </view>
         </scroll-view>
       </view>

@@ -6,32 +6,30 @@ Page({
    * 页面的初始数据
    */
   data: {
+    checkInOut:'入住',
+    lockUnlock:'锁门',
+    lockDis:true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const that = this;
     console.log(app.globalData);
     if (!app.globalData.isChecked) {
       wx.redirectTo({
         url: "../../camera2/camera2?page=rooms"
       })
     }
-    const that = this;
+    if (app.globalData.isIN){
+      that.setData({
+        checkInOut: '退房',
+        lockUnlock: '开锁',
+        lockDis: false
+      })
+    }
     const db = wx.cloud.database();
-    /*db.collection('rooms').doc('XLfIT4nnuWjci1UL').get({
-      success(res) {
-        // res.data 包含该记录的数据
-        console.log(res.data.roomID);
-        that.setData({
-          roomID: res.data.roomID,
-          roomType: res.data.roomType,
-          guestName: res.data.guestName,
-          guestPhone: res.data.guestPhone,
-        });
-      }
-    });*/
     db.collection('orders').where({
       guestPhone:app.globalData.guestPhone,
       isComplete:false
@@ -51,11 +49,11 @@ Page({
     //console.log('hhh');
     var checkInfo = {};//包含入住人姓名以及房号
     var inout = e.currentTarget.dataset.inout;
-    checkInfo.guestName = e.currentTarget.dataset.guestname;
-    checkInfo.roomID = e.currentTarget.dataset.roomid;
+    var guestName = e.currentTarget.dataset.guestname;
+    var roomID = e.currentTarget.dataset.roomid;
     //console.log(checkInfo);
     wx.navigateTo({
-      url: './checkGuest/checkGuest',
+      url: './checkGuest/checkGuest?inout='+inout+'&guestName='+guestName+'&roomID='+roomID,
       //url: '../../camera2/camera2',
       success: function (res) {
         // 通过eventChannel向被打开页面传送数据
