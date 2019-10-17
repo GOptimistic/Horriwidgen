@@ -1,4 +1,5 @@
 // miniprogram/pages/mainwindow/rooms/checkGuest/checkGuest.js
+var app = getApp();
 Page({
 
   /**
@@ -13,16 +14,10 @@ Page({
   },
 
   confirmCheckin(){
-    const db = wx.cloud.database();
-    db.collection('orders').doc(roomID).update({
-      // data 传入需要局部更新的数据
-      data: {
-        checkInOut: "退房",
-        lockDis: false,
-      },
-      success: function (res) {
-        console.log(res.data)
-      }
+    var that = this;
+    app.globalData.isIN = true;
+    wx.reLaunch({
+      url: '../rooms'
     })
   },
 
@@ -48,7 +43,8 @@ Page({
         that.setData({
           sex:res.data[0].sex,
           birthDate: util.formatTime(res.data[0].birthDate),
-          IDNumber:res.data[0].IDNumber
+          IDNumber:res.data[0].IDNumber,
+          roomID: res.data[0].roomID
         })
         console.log(that.data);
       }

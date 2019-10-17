@@ -5,6 +5,7 @@ App({
     guestPhone:'',//用户的手机号
     province:'',//选择的省份
     city:'',//选择的城市
+    isIN:false
   },
   onLaunch: function () {
     if (!wx.cloud) {
