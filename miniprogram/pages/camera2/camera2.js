@@ -109,6 +109,11 @@ Page({
                     url: "../mainwindow/me/me"
                   });
                   break;
+                case "search":
+                  wx.reLaunch({
+                    url: "../mainwindow/search/search"
+                  });
+                  break;
                 default:
                   wx.reLaunch({
                     url: "../mainwindow/homepage/homepage"

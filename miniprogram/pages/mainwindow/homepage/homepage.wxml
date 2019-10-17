@@ -26,9 +26,8 @@
           <navigator  hover-class='nav' class="home-info-date-start">
             <text>{{occupancy}}</text>
           </navigator>
-          <navigator hover-class='nav' class="home-info-date-end">
-            - 
-            <text>{{leave}}</text>
+          <navigator hover-class='nav' class="home-info-date-end"> 
+            <text>-  {{leave}}</text>
           </navigator>
         </view>
       </view>

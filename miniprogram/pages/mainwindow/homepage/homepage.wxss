@@ -14,6 +14,7 @@ page{
   align-items: center;
   justify-content: center;
   flex-direction:column;
+  margin-top: 8%;
 }
 
 .home-info{
@@ -80,9 +81,9 @@ page{
 }
 
 .home-info-date-start{
-  width: 38%;
+  width: 34%;
 }
 
 .home-info-date-end{
-  width: 40%;
+  width: 50%;
 }

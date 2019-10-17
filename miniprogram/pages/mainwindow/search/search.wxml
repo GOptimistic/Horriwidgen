@@ -5,13 +5,13 @@
       <view class='weui-flex__item'>
         <navigator url='/pages/date/date?isorder=false&id=null' hover-class='nav'>
           住
-          <text>{{occupancy}}</text>
+          <text>{{occupancy_s}}</text>
         </navigator>
       </view>
       <view class='weui-flex__item'>
         <navigator url='/pages/date/date?isorder=false&id=null' hover-class='nav'>
           离
-          <text>{{leave}}</text>
+          <text>{{leave_s}}</text>
         </navigator>
       </view>
     </view>
@@ -26,7 +26,7 @@
   <view class="search-line"></view>
   <view class="search-container">
     <view is="productItem" wx:for="{{productList}}">
-      <view class='search-roominfo'>
+      <view class='search-roominfo' bindtap="book" data-price="{{item.price}}" data-roomId="{{item.roomID}}" data-roomType="{{item.roomType}}">
         <image src="{{item.imgUrl}}" class="search-img" mode='widthFix'></image>
         <view class="search-roominfo-text">
           <view class="search-roominfo-noprice">
