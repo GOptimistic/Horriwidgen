@@ -31,16 +31,14 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    var util = require('../../../../utils/util.js');
+    console.log(options);    
     const db = wx.cloud.database();
-    const eventChannel = this.getOpenerEventChannel();
-    eventChannel.on('acceptDataFromOpenerPage', function (data) {
-      console.log(data);
-      that.setData({
-        guestName:data.guestName,
-        roomID: data.roomID
-      });
-      console.log(that.data.guestName);
+    that.setData({
+      guestName: options.guestName,
+      roomID: options.roomID
     });
+    console.log(that.data);
     db.collection('guests').where({
       guestName: that.data.guestName
     }).get({
@@ -48,11 +46,11 @@ Page({
         // res.data 包含该记录的数据
         console.log(res.data);
         that.setData({
-          sex:res.data.sex,
-          birthDate:res.data.birthDate,
-          IDNumber:res.data.IDNumber
+          sex:res.data[0].sex,
+          birthDate: util.formatTime(res.data[0].birthDate),
+          IDNumber:res.data[0].IDNumber
         })
-        //console.log(that.data.roomArray);
+        console.log(that.data);
       }
     });
   },
